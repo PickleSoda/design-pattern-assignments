@@ -1,6 +1,4 @@
-Sure, here is a single `README.md` file covering all three projects in an unparsed format:
 
-```
 # Design Patterns Projects
 
 ## Overview
@@ -143,4 +141,4 @@ CustomerSupport
 **Features:**
 - Handle support requests at three levels
 - Pass requests to appropriate handler based on level
-```
+
