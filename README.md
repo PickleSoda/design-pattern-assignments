@@ -28,7 +28,7 @@ LibraryManagement
 │
 └── Presentation
     └── ConsoleApp
-        ├── LibraryManagement.Presentation.ConsoleApp.csproj
+        ├── LibraryManagement.csproj
         └── Program.cs
 ```
 
@@ -76,7 +76,7 @@ HomeAutomation
 │
 └── Presentation
     └── ConsoleApp
-        ├── HomeAutomation.Presentation.ConsoleApp.csproj
+        ├── HomeAutomation.csproj
         └── Program.cs
 ```
 
@@ -122,7 +122,7 @@ CustomerSupport
 │
 └── Presentation
     └── ConsoleApp
-        ├── CustomerSupport.Presentation.ConsoleApp.csproj
+        ├── CustomerSupport.csproj
         └── Program.cs
 ```
 
