@@ -6,6 +6,7 @@ namespace HomeAutomation.Application.Commands
     {
         private Thermostat _thermostat;
         private int _temperature;
+        private int _previousTemperature;
 
         public AdjustThermostatCommand(Thermostat thermostat, int temperature)
         {
@@ -15,7 +16,13 @@ namespace HomeAutomation.Application.Commands
 
         public void Execute()
         {
+            _previousTemperature = _thermostat.CurrentTemperature;
             _thermostat.SetTemperature(_temperature);
+        }
+
+        public void Undo()
+        {
+            _thermostat.SetTemperature(_previousTemperature);
         }
     }
 }

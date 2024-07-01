@@ -15,5 +15,9 @@ namespace HomeAutomation.Application.Commands
         {
             _light.TurnOff();
         }
+        public void Undo()
+        {
+            _light.TurnOn();
+        }
     }
 }

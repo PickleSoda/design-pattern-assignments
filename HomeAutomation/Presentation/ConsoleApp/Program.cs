@@ -1,6 +1,6 @@
 using System;
-using HomeAutomation.Application.Commands;
 using HomeAutomation.Application.Services;
+using HomeAutomation.Application.Commands;
 using HomeAutomation.Core.Entities;
 using HomeAutomation.Core.Interfaces;
 
@@ -15,19 +15,32 @@ class Program
         // Create commands
         ICommand turnOnLight = new TurnOnLightCommand(livingRoomLight);
         ICommand turnOffLight = new TurnOffLightCommand(livingRoomLight);
-        ICommand adjustThermostat = new AdjustThermostatCommand(thermostat, 22);
+        ICommand adjustThermostat22 = new AdjustThermostatCommand(thermostat, 22);
+        ICommand adjustThermostat25 = new AdjustThermostatCommand(thermostat, 25);
 
         // Create invoker
         RemoteControlService remoteControl = new RemoteControlService();
 
-        // Execute commands
+        // Execute and undo commands
+        Console.WriteLine("Executing Turn On:");
         remoteControl.SetCommand(turnOnLight);
         remoteControl.PressButton();
+        remoteControl.PressUndoButton();
 
+        Console.WriteLine("Executing Turn Off:");
         remoteControl.SetCommand(turnOffLight);
         remoteControl.PressButton();
+        remoteControl.PressUndoButton();
 
-        remoteControl.SetCommand(adjustThermostat);
+        Console.WriteLine("Executing Adjust Thermostat:");
+        remoteControl.SetCommand(adjustThermostat22);
         remoteControl.PressButton();
+
+        remoteControl.SetCommand(adjustThermostat25);
+        remoteControl.PressButton();
+        
+        Console.WriteLine("Undoing Adjust Thermostat:");
+        remoteControl.PressUndoButton();
+        remoteControl.PressUndoButton();
     }
 }
